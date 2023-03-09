@@ -2,7 +2,13 @@ import './App.css';
 import React, {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Header from "./components/Header/Header";
-// import {Route, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
+import ProductList from "./components/ProductList/ProductList";
+import Form from "./components/Form/Form";
+// import ProductList from "./components/ProductList/ProductList";
+// import Form from "./components/Form/Form";
+// import './components/ProductList/ProductList.css'
+// import './components/Form/Form.css'
 
 // const tg = window.Telegram.WebApp
 
@@ -16,7 +22,10 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <button onClick={onToggleButton}>toggle</button>
+            <Routes>
+                <Route index element={<ProductList/>}/>
+                <Route path={'/form'} element={<Form/>}/>
+            </Routes>
         </div>
     );
 }
